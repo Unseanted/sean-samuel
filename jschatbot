@@ -1,0 +1,36 @@
+const readline = require("readline");
+
+// Create readline interface
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+function simpleChatbot() {
+  // Ask the user for their name
+  rl.question("Hello! What is your name? ", (name) => {
+    // Respond with a personalized greeting
+    console.log(`It's great to meet you, ${name}!`);
+
+    // Get the current date
+    const currentDate = new Date();
+
+    // Format the date into a readable format
+    const formattedDate = currentDate.toLocaleDateString("en-US", {
+      month: "long",
+      day: "2-digit",
+      year: "numeric",
+    });
+
+    // Display the current date
+    console.log(
+      `Today's date is ${formattedDate}. Have a wonderful day!`
+    );
+
+    // Close readline
+    rl.close();
+  });
+}
+
+// Run the chatbot
+simpleChatbot();
